@@ -1,0 +1,90 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+#include "UObject/GeneratedCppIncludes.h"
+#include "SIS457_L01/Public/Enemigps.h"
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+void EmptyLinkFunctionForGeneratedCodeEnemigps() {}
+
+// Begin Cross Module References
+ENGINE_API UClass* Z_Construct_UClass_AActor();
+SIS457_L01_API UClass* Z_Construct_UClass_AEnemigps();
+SIS457_L01_API UClass* Z_Construct_UClass_AEnemigps_NoRegister();
+UPackage* Z_Construct_UPackage__Script_SIS457_L01();
+// End Cross Module References
+
+// Begin Class AEnemigps
+void AEnemigps::StaticRegisterNativesAEnemigps()
+{
+}
+IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AEnemigps);
+UClass* Z_Construct_UClass_AEnemigps_NoRegister()
+{
+	return AEnemigps::StaticClass();
+}
+struct Z_Construct_UClass_AEnemigps_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+		{ "IncludePath", "Enemigps.h" },
+		{ "ModuleRelativePath", "Public/Enemigps.h" },
+	};
+#endif // WITH_METADATA
+	static UObject* (*const DependentSingletons[])();
+	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<AEnemigps>::IsAbstract,
+	};
+	static const UECodeGen_Private::FClassParams ClassParams;
+};
+UObject* (*const Z_Construct_UClass_AEnemigps_Statics::DependentSingletons[])() = {
+	(UObject* (*)())Z_Construct_UClass_AActor,
+	(UObject* (*)())Z_Construct_UPackage__Script_SIS457_L01,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemigps_Statics::DependentSingletons) < 16);
+const UECodeGen_Private::FClassParams Z_Construct_UClass_AEnemigps_Statics::ClassParams = {
+	&AEnemigps::StaticClass,
+	"Engine",
+	&StaticCppClassTypeInfo,
+	DependentSingletons,
+	nullptr,
+	nullptr,
+	nullptr,
+	UE_ARRAY_COUNT(DependentSingletons),
+	0,
+	0,
+	0,
+	0x009000A4u,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemigps_Statics::Class_MetaDataParams), Z_Construct_UClass_AEnemigps_Statics::Class_MetaDataParams)
+};
+UClass* Z_Construct_UClass_AEnemigps()
+{
+	if (!Z_Registration_Info_UClass_AEnemigps.OuterSingleton)
+	{
+		UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_AEnemigps.OuterSingleton, Z_Construct_UClass_AEnemigps_Statics::ClassParams);
+	}
+	return Z_Registration_Info_UClass_AEnemigps.OuterSingleton;
+}
+template<> SIS457_L01_API UClass* StaticClass<AEnemigps>()
+{
+	return AEnemigps::StaticClass();
+}
+DEFINE_VTABLE_PTR_HELPER_CTOR(AEnemigps);
+AEnemigps::~AEnemigps() {}
+// End Class AEnemigps
+
+// Begin Registration
+struct Z_CompiledInDeferFile_FID_SIS457_L01_Source_SIS457_L01_Public_Enemigps_h_Statics
+{
+	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
+		{ Z_Construct_UClass_AEnemigps, AEnemigps::StaticClass, TEXT("AEnemigps"), &Z_Registration_Info_UClass_AEnemigps, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigps), 606672229U) },
+	};
+};
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SIS457_L01_Source_SIS457_L01_Public_Enemigps_h_3843700495(TEXT("/Script/SIS457_L01"),
+	Z_CompiledInDeferFile_FID_SIS457_L01_Source_SIS457_L01_Public_Enemigps_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SIS457_L01_Source_SIS457_L01_Public_Enemigps_h_Statics::ClassInfo),
+	nullptr, 0,
+	nullptr, 0);
+// End Registration
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
