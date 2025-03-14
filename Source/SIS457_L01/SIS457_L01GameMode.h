@@ -20,6 +20,8 @@ protected:
 private:
 	void SpawnbloqueLadrillo();
 	void SpawnMuro();
+	void SpawnEnemigo();
+	void SpawnBloqueAcero();
 };
 
 

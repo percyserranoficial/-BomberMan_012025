@@ -14,7 +14,7 @@ AMuro::AMuro()
 	MallaMuro = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaMuro"));
 	RootComponent = MallaMuro;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMallaMuro(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Trim.Shape_Trim'"));	
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMallaMuro(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));	
 
 	if (ObjetoMallaMuro.Succeeded())
 	{
@@ -29,7 +29,10 @@ AMuro::AMuro()
 	bPuedeMoverse = FMath::RandBool();
 
 	//modificar la escala de Muro
-	MallaMuro->SetWorldScale3D(FVector(2.5f, 2.5f, 2.5f));
+	MallaMuro->SetWorldScale3D(FVector(2.5f, 2.5f, 8.5f));
+
+	//fisicas para el muro
+	MallaMuro->SetSimulatePhysics(true);
 }
 
 // Called when the game starts or when spawned

@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Enemigps.generated.h"
-
+class UStaticMeshComponent;
 UCLASS()
 class SIS457_L01_API AEnemigps : public AActor
 {
@@ -15,6 +15,8 @@ public:
 	// Sets default values for this actor's properties
 	AEnemigps();
 
+	UStaticMeshComponent* MallaEnemigo;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -23,4 +25,5 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	bool bPuedeMoverse;
 };

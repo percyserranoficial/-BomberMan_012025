@@ -11,6 +11,8 @@
     <None Include="..\..\Source\SIS457_L01Editor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -57,6 +59,9 @@
     <Filter Include="Source\SIS457_L01\Private">
       <UniqueIdentifier>{028DB477-4001-3F2B-A0DC-8A6EA65FBCF0}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueAcero.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueLadrillo.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
@@ -69,6 +74,9 @@
     <Filter Include="Source\SIS457_L01\Public">
       <UniqueIdentifier>{DA666664-EC91-3BD6-89B5-DCD0839249C6}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueAcero.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueLadrillo.h">
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>

@@ -14,7 +14,7 @@ ABloqueLadrillo::ABloqueLadrillo()
 	//RootComponent = MeshBloque;
 	MallaBloque->SetupAttachment(RootComponent);
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMallaBloque(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMallaBloque(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
 
 	if (ObjetoMallaBloque.Succeeded())
 	{
