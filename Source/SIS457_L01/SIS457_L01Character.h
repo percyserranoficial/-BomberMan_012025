@@ -43,7 +43,6 @@ class ASIS457_L01Character : public ACharacter
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
-
 public:
 	ASIS457_L01Character();
 	

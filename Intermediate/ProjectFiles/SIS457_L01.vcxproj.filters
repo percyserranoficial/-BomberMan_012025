@@ -65,6 +65,15 @@
     <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueLadrillo.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueMadera.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\Bomba.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\EnemigoFantasma.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Private\Enemigps.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
@@ -78,6 +87,15 @@
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueLadrillo.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueMadera.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\Bomba.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\EnemigoFantasma.h">
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Public\Enemigps.h">

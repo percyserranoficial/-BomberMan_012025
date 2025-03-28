@@ -3,11 +3,15 @@
 #include "SIS457_L01GameMode.h"
 #include "SIS457_L01Character.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "TimerManager.h"
 #include "BloqueLadrillo.h"
 #include "Muro.h"
 #include "Enemigps.h"
 #include "BloqueAcero.h"
+#include "EnemigoFantasma.h"
+#include "Bomba.h"
+#include "BloqueMadera.h"
 
 ASIS457_L01GameMode::ASIS457_L01GameMode()
 {
@@ -28,7 +32,9 @@ void ASIS457_L01GameMode::BeginPlay()
 	SpawnMuro();
     SpawnEnemigo();
 	SpawnBloqueAcero();
-	
+	SpawnEnemigoFantasma();
+	SpawnBomba();
+	SpawnBloqueMadera();
 }
 
 void ASIS457_L01GameMode::SpawnbloqueLadrillo()
@@ -143,14 +149,12 @@ void ASIS457_L01GameMode::SpawnEnemigo()
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Enemigos spawneados"));
 
 	// Establecer una posición base inicial para el primer enemigo
-	FVector BaseLocation = FVector(1500.0f, 2500.0f, 20.0f);
-	FRotator Rotation = FRotator::ZeroRotator; // Rotación inicial
-	// Array para almacenar las instancias de los enemigos
-	TArray<AEnemigps*> EnemigosSpawneados;
-	// Contador de cuántos enemigos se han movido
-	int32 EnemigosQueSeMoveran = 0;
+	FVector BaseLocation = FVector(3750.0f, 5230.0f, 20.0f);
+
+    FRotator Rotation = FRotator::ZeroRotator; // Rotación inicial
+
 	// Generar los enemigos
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 15; i++)
 	{
 		// Desviación aleatoria en el rango de -50 a 50 unidades para X y Y
 		float RandomOffsetX = FMath::RandRange(-1950.0f,1950.0f);
@@ -159,23 +163,6 @@ void ASIS457_L01GameMode::SpawnEnemigo()
 		FVector NewLocation = BaseLocation + FVector(RandomOffsetX, RandomOffsetY, 0.0f);
 		// Spawn del enemigo
 		AEnemigps* NewEnemigo = GetWorld()->SpawnActor<AEnemigps>(AEnemigps::StaticClass(), NewLocation, Rotation);
-		if (NewEnemigo)
-		{
-			// Decidir aleatoriamente si el enemigo se moverá
-			if (EnemigosQueSeMoveran < 3)
-			{
-				// Solo los primeros 3 enemigos se moverán
-				NewEnemigo->bPuedeMoverse = true;
-				EnemigosQueSeMoveran++;  // Incrementamos el contador
-			}
-			else
-			{
-				// Los otros enemigos no se moverán
-				NewEnemigo->bPuedeMoverse = false;
-			}
-			// Almacenar la instancia del enemigo (si es necesario para más operaciones)
-			EnemigosSpawneados.Add(NewEnemigo);
-		}
 	}
 }
 
@@ -187,19 +174,109 @@ void ASIS457_L01GameMode::SpawnBloqueAcero()
 	// Establecer una posición base inicial para el primer bloque de acero
 	FVector BaseLocation = FVector(1500.0f, 3300.0f, 20.0f);
 	FRotator Rotation = FRotator::ZeroRotator;
-	int32 Filas = 17;
-	int32 Columnas = 17;
-	float Espaciado = 300.0f;
+
+	float Espaciado = 290.0f;
+
+	int32 laberinto[17][17] = {
+		{1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+		{1, 0, 0, 0, 0, 0, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1},
+		{1, 1, 2, 2, 2, 2, 0, 1, 1, 2, 2, 1, 0, 1, 1, 0, 1},
+		{1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1},
+		{1, 1, 1, 1, 0, 1, 2, 2, 2, 1, 0, 2, 1, 1, 0, 2, 1},
+		{1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1},
+		{1, 0, 2, 2, 2, 2, 2, 2, 0, 1, 1, 2, 2, 1, 1, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 2, 2, 0, 1, 1, 0, 1},
+		{1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+		{1, 1, 2, 2, 1, 1, 1, 2, 2, 2, 1, 2, 1, 2, 2, 0, 1},
+		{1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1},
+		{1, 1, 2, 1, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 1, 2, 1},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+	};
 
 	UWorld* World = GetWorld();
 	if (!World) return;
 
-	for (int32 i = 0; i < Filas; ++i)
+	for (int32 i = 0; i < 17; ++i)
 	{
-		for (int32 j = 0; j < Columnas; ++j)
+		for (int32 j = 0; j < 17; ++j)
 		{
-			FVector SpawnLocation = BaseLocation + FVector(i * Espaciado, j * Espaciado, 0.0f);
-			ABloqueAcero* NewEnemigo = World->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), SpawnLocation, Rotation);
+			if (laberinto[i][j] == 1)
+			{
+				FVector SpawnLocation = BaseLocation + FVector(i * Espaciado, j * Espaciado, 0.0f);
+				ABloqueAcero* NewEnemigo = World->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), SpawnLocation, Rotation);
+
+				//aniadir los bloques a un array
+				if (NewEnemigo)
+				{
+					BloquesAcero.Add(NewEnemigo);
+				}
+			}
+			// Si es un bloque de madera (2)
+			else if (laberinto[i][j] == 2)
+			{
+				FVector SpawnLocation = BaseLocation + FVector(i * Espaciado, j * Espaciado, 0.0f);
+				ABloqueMadera* NewBloqueMadera = World->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), SpawnLocation, Rotation);
+
+				if (NewBloqueMadera)
+				{
+					BloquesMadera.Add(NewBloqueMadera); // Añadir a un nuevo array específico de bloques de madera
+				}
+			}
 		}
 	}
+	//mostrar cuandtos bloques se aniadieron al array
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Bloques de acero en el array: %d"), BloquesAcero.Num()));
+
+}
+
+void ASIS457_L01GameMode::SpawnEnemigoFantasma()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Enemigos Fantasmas spawneados"));
+	
+	FVector Posiciones[5] = { FVector(3550.0f, 5230.0f, 20.0f),
+		FVector(3550.0f, 4230.0f, 20.0f),
+		FVector(3850.0f, 5230.0f, 20.0f),
+		FVector(3250.0f, 5230.0f, 20.0f),
+		FVector(3550.0f, 4230.0f, 20.0f) 
+	};
+
+	for (int i = 0; i < 5; i++)
+	{
+		GetWorld()->SpawnActor<AEnemigoFantasma>(AEnemigoFantasma::StaticClass(), Posiciones[i], FRotator::ZeroRotator);
+	}
+//	AEnemigoFantasma* EnemigoFantasma = GetWorld()->SpawnActor<AEnemigoFantasma>(AEnemigoFantasma::StaticClass(), FVector(3550.0f, 5230.0f, 20.0f), FRotator::ZeroRotator);
+}
+
+void ASIS457_L01GameMode::SpawnBomba()
+{
+	//POSICION INICIAL
+	FVector PosicionInicial(3550.0f, 5230.0f, 20.0f);
+	FRotator SpawnRotation = FRotator::ZeroRotator;
+
+	for (int i = 0; i < 10; i++) {
+		//desplazamiwento aleatorio desde la posicion inicial
+		float OffsetX = UKismetMathLibrary::RandomFloatInRange(-1500.0f, 2500.0f);
+		float OffsetY = UKismetMathLibrary::RandomFloatInRange(-1500.0f, 2500.0f);
+		float OffsetZ = 100.0f;
+
+		FVector SpawnLocation = PosicionInicial + FVector(OffsetX, OffsetY, OffsetZ);
+
+		// Spawnear la bomba
+		ABomba* Bomba = GetWorld()->SpawnActor<ABomba>(ABomba::StaticClass(), SpawnLocation, SpawnRotation);
+	}
+}
+
+void ASIS457_L01GameMode::SpawnBloqueMadera()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Bloques de madera spawneados"));
+	//spawnear un bloque de madera
+	FVector PosicionInicial(3550.0f, 5230.0f, 20.0f);
+	FRotator SpawnRotation = FRotator::ZeroRotator;
+
+	ABloqueMadera* BloqueMadera = GetWorld()->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), PosicionInicial, SpawnRotation);
 }

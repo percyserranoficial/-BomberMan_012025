@@ -32,7 +32,7 @@ AMuro::AMuro()
 	MallaMuro->SetWorldScale3D(FVector(2.5f, 2.5f, 8.5f));
 
 	//fisicas para el muro
-	MallaMuro->SetSimulatePhysics(true);
+	//MallaMuro->SetSimulatePhysics(true);
 }
 
 // Called when the game starts or when spawned

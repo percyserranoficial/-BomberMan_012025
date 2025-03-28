@@ -21,6 +21,9 @@ ABloqueAcero::ABloqueAcero()
 
 	}
 
+	//escala de bloqueAcero
+	MallaBloqueAcero->SetWorldScale3D(FVector(2.5f, 2.5f, 2.5f));
+
 	bMoverse = FMath::RandBool();
 	VelocidadMovimiento = 100.0f;
 	MinZ = GetActorLocation().Z - 100.0f;
@@ -46,7 +49,7 @@ void ABloqueAcero::Tick(float DeltaTime)
 		FVector NuevaPosicion = GetActorLocation();
 		NuevaPosicion.Z += VelocidadMovimiento * DeltaTime * direccion;
 
-		// cambiar la direccion
+		// cambiar la direccion	
 		if (NuevaPosicion.Z >= MaxZ)
 		{
 			NuevaPosicion.Z = MaxZ;

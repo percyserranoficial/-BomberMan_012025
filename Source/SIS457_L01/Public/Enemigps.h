@@ -25,5 +25,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	bool bPuedeMoverse;
+public:
+	FVector MovimientoActual;
+	float DistanciaRecorrida;
+	const float DistanciaMaxima = 500.0f;
+
+private:
+	void CambiarDireccion();
+
+
+	bool DetectarObstaculo(FVector Destino);
 };

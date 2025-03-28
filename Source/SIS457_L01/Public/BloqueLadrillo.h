@@ -29,7 +29,7 @@ private:
 	FVector MovimientoVelocidad;
 public:
 	//Rango de movimiento en el eje Z
-	float MinZ = 100;
+	float MinZ = 300;
 	float MaxZ = 200;
 
 	//Velocidad del movimiento
