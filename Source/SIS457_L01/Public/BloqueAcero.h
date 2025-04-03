@@ -24,7 +24,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//variables para movimiento de los bloques
+	//VARIABLES PARA EL MOVIMIENTO DE LOS BLOQUES
 	bool bMoverse;
 	float VelocidadMovimiento;
 	float MinZ;

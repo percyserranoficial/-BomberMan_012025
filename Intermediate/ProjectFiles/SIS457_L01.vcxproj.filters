@@ -62,6 +62,15 @@
     <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueAcero.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueBurbuja.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueConcreto.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueEspinas.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Private\BloqueLadrillo.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
@@ -71,7 +80,19 @@
     <ClCompile Include="..\..\Source\SIS457_L01\Private\Bomba.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\EnemigoAcuatico.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\EnemigoAereo.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Private\EnemigoFantasma.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\EnemigoSubterraneo.cpp">
+      <Filter>Source\SIS457_L01\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Private\EnemigoTerrestre.cpp">
       <Filter>Source\SIS457_L01\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Private\Enemigps.cpp">
@@ -86,6 +107,15 @@
     <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueAcero.h">
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueBurbuja.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueConcreto.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueEspinas.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Public\BloqueLadrillo.h">
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>
@@ -95,7 +125,19 @@
     <ClCompile Include="..\..\Source\SIS457_L01\Public\Bomba.h">
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\EnemigoAcuatico.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\EnemigoAereo.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Public\EnemigoFantasma.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\EnemigoSubterraneo.h">
+      <Filter>Source\SIS457_L01\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SIS457_L01\Public\EnemigoTerrestre.h">
       <Filter>Source\SIS457_L01\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SIS457_L01\Public\Enemigps.h">

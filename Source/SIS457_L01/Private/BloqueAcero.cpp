@@ -24,7 +24,8 @@ ABloqueAcero::ABloqueAcero()
 	//escala de bloqueAcero
 	MallaBloqueAcero->SetWorldScale3D(FVector(2.5f, 2.5f, 2.5f));
 
-	bMoverse = FMath::RandBool();
+	//INICIALIZACION DE LAS VARIABLES DEFINIDAS
+	bMoverse = FMath::RandBool();// MOVIMIENTO ALEATORIO PARA LOS BLOQUES
 	VelocidadMovimiento = 100.0f;
 	MinZ = GetActorLocation().Z - 100.0f;
 	MaxZ = GetActorLocation().Z + 100.0f;
@@ -40,6 +41,7 @@ void ABloqueAcero::BeginPlay()
 }
 
 // Called every frame
+// LA LOGICA DE MOVIMIENTO SE ENCUENTRA EN EL TICK
 void ABloqueAcero::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

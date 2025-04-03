@@ -32,6 +32,8 @@ public:
 	TArray<ABloqueMadera*> BloquesMadera;
 
 	TArray<TArray<int32>> Laberinto1;
+	TArray<TArray<int32>> Laberinto2;	
+	TArray<TArray<int32>> Laberinto3;	
 };
 
 
